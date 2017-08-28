@@ -1,0 +1,20 @@
+{
+  "name": "download-images",
+  "version": "0.1.0",
+  "description": "Downloads an array of URLs",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "eslint src/"
+  },
+  "keywords": [
+    "download",
+    "all",
+    "images"
+  ],
+  "author": "Jack Baron <me@jackbaron.com> (https://www.jackbaron.com)",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-eslint": "^7.2.3",
+    "eslint": "^4.5.0"
+  }
+}
