@@ -7,3 +7,17 @@
 Install the package globally using `npm i -g batch-dl`
 
 ## Usage
+```sh
+Usage: batch-dl [URLs...]
+
+Options:
+  -V, --version          output the version number
+  -D, --directory <dir>  Download Directory
+  -A --auto-number       Number the downloads sequentially
+  -h, --help             output usage information
+```
+
+### Example
+```sh
+batch-dl -D ./download http://i.imgur.com/EecJUlF.png http://i.imgur.com/XHQxcf1.png
+```

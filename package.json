@@ -1,6 +1,6 @@
 {
   "name": "batch-dl",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "Command line script to batch download URLs",
   "main": "src/index.js",
   "bin": "bin/index.js",
