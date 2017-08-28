@@ -16,7 +16,7 @@ program
 const main = async program => {
   if (program.args.length === 0) program.help()
   try {
-    let directory = program.directory || path.join(__dirname, '..')
+    let directory = program.directory || '.'
     let args = program.args
     let keepFilenames = !program.autoNumber
     downloadArray(args, directory, keepFilenames)
