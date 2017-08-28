@@ -14,10 +14,15 @@ program
  * @param {program} program Commander Program
  */
 const main = async program => {
-  let directory = program.directory || path.join(__dirname, '..')
-  let args = program.args
-  let keepFilenames = !program.autoNumber
-  downloadArray(args, directory, keepFilenames)
+  if (program.args.length === 0) program.help()
+  try {
+    let directory = program.directory || path.join(__dirname, '..')
+    let args = program.args
+    let keepFilenames = !program.autoNumber
+    downloadArray(args, directory, keepFilenames)
+  } catch (err) {
+    console.error(err)
+  }
 }
 
 main(program)

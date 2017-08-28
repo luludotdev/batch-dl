@@ -31,7 +31,7 @@ const downloadFile = async (url, filePath, fileName) => {
     await fs.ensureFile(fullPath)
     await fs.writeFile(fullPath, res.body)
   } catch (err) {
-    throw err
+    console.error(`${url} - ${err.message}`)
   }
 }
 
@@ -52,7 +52,11 @@ const downloadArray = async (URLs, filePath, keepFilenames = false) => {
     let fileName = keepFilenames ? null : i
 
     // Download
-    downloadFile(url, filePath, fileName)
+    try {
+      downloadFile(url, filePath, fileName)
+    } catch (err) {
+      console.error(err.message)
+    }
   }
 }
 
