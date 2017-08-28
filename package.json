@@ -1,8 +1,9 @@
 {
   "name": "batch-dl",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Downloads an array of URLs",
   "main": "src/index.js",
+  "bin": "src/index.js",
   "scripts": {
     "test": "eslint src/"
   },
