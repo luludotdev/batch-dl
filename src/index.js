@@ -35,4 +35,17 @@ const downloadFile = async (url, filePath, fileName) => {
   }
 }
 
+/**
+ * 
+ * @param {string[]} URLs Array of URLs to download
+ * @param {string} filePath Path to directory where the files will be saved
+ * @param {boolean} [keepFilenames=false] Keep original filenames (default: false)
+ */
+const downloadArray = async (URLs, filePath, keepFilenames = false) => {
+  // Filter and validate
+  URLs = URLs.filter(url => isURL(url))
+  if (URLs.length === 0) throw new Error('No valid URLs passed')
+  if (filePath === undefined || filePath === null || filePath === '') throw new Error('Please specify a File Path')
+}
+
 downloadFile('https://cdn.discordapp.com/attachments/298092968013987841/348915901258530828/0493_ev_miy19l.png', __dirname)
