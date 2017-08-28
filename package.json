@@ -1,5 +1,5 @@
 {
-  "name": "download-images",
+  "name": "batch-download",
   "version": "0.1.0",
   "description": "Downloads an array of URLs",
   "main": "src/index.js",
@@ -9,7 +9,8 @@
   "keywords": [
     "download",
     "all",
-    "images"
+    "files",
+    "batch"
   ],
   "author": "Jack Baron <me@jackbaron.com> (https://www.jackbaron.com)",
   "license": "ISC",
