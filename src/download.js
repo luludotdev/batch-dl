@@ -56,4 +56,4 @@ const downloadArray = async (URLs, filePath, keepFilenames = false) => {
   }
 }
 
-downloadArray(['https://cdn.discordapp.com/attachments/298092968013987841/348915901258530828/0493_ev_miy19l.png', 'whee', 5], __dirname)
+module.exports = { downloadFile, downloadArray }
