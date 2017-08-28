@@ -34,9 +34,3 @@ node_modules
 
 # VSCode
 .vscode
-
-# Config Files
-config.js
-
-# Dev Bot
-dev
