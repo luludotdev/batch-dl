@@ -46,6 +46,14 @@ const downloadArray = async (URLs, filePath, keepFilenames = false) => {
   URLs = URLs.filter(url => isURL(url))
   if (URLs.length === 0) throw new Error('No valid URLs passed')
   if (filePath === undefined || filePath === null || filePath === '') throw new Error('Please specify a File Path')
+  for (let i in URLs) {
+    // Define
+    let url = URLs[i]
+    let fileName = keepFilenames ? null : i
+
+    // Download
+    downloadFile(url, filePath, fileName)
+  }
 }
 
-downloadFile('https://cdn.discordapp.com/attachments/298092968013987841/348915901258530828/0493_ev_miy19l.png', __dirname)
+downloadArray(['https://cdn.discordapp.com/attachments/298092968013987841/348915901258530828/0493_ev_miy19l.png', 'whee', 5], __dirname)
