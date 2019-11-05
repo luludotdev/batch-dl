@@ -1,6 +1,6 @@
 {
   "name": "batch-dl",
-  "version": "0.2.4",
+  "version": "0.3.0",
   "description": "Command line script to batch download URLs",
   "main": "src/index.js",
   "bin": "bin/index.js",
@@ -24,13 +24,13 @@
   },
   "homepage": "https://github.com/lolPants/batch-dl#readme",
   "devDependencies": {
-    "babel-eslint": "^7.2.3",
-    "eslint": "^4.5.0"
+    "babel-eslint": "^10.0.3",
+    "eslint": "^6.6.0"
   },
   "dependencies": {
-    "commander": "^2.11.0",
-    "fs-extra": "^4.0.1",
-    "is-url": "^1.2.2",
-    "snekfetch": "^3.2.9"
+    "commander": "^4.0.0",
+    "fs-extra": "^8.1.0",
+    "is-url": "^1.2.4",
+    "snekfetch": "^4.0.4"
   }
 }
