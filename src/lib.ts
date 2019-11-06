@@ -36,7 +36,7 @@ const downloadFile = async (url, filePath, fileName) => {
 }
 
 /**
- * 
+ *
  * @param {string[]} URLs Array of URLs to download
  * @param {string} filePath Path to directory where the files will be saved
  * @param {boolean} [keepFilenames=false] Keep original filenames (default: false)
