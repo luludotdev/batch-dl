@@ -1,23 +1,25 @@
 #!/usr/bin/env node
-const program = require('commander')
-const { downloadArray } = require('./index')
+import program, { CommanderStatic } from 'commander'
+import { sync as readPkgSync } from 'read-pkg-up'
+import { downloadArray } from './lib'
+
+const pkg = readPkgSync()
+const version = (pkg && pkg.packageJson.version) || 'unknown version'
 
 program
-  .version(require('../package.json').version)
+  .version(version)
   .option('-D, --directory <dir>', 'Download Directory')
   .option('-A --auto-number', 'Number the downloads sequentially')
   .parse(process.argv)
 
-/**
- *
- * @param {program} program Commander Program
- */
-const main = async program => {
-  if (program.args.length === 0) program.help()
+const main = async (prog: CommanderStatic) => {
+  if (prog.args.length === 0) prog.help()
+
   try {
-    let directory = program.directory || '.'
-    let args = program.args
-    let keepFilenames = !program.autoNumber
+    const directory = prog.directory || '.'
+    const args = prog.args
+    const keepFilenames = !prog.autoNumber
+
     downloadArray(args, directory, keepFilenames)
   } catch (err) {
     console.error(err)

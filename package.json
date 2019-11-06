@@ -49,6 +49,7 @@
   "dependencies": {
     "commander": "^4.0.0",
     "is-url": "^1.2.4",
+    "read-pkg-up": "^7.0.0",
     "unfetch": "^4.1.0"
   }
 }
