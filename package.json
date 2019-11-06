@@ -2,35 +2,58 @@
   "name": "batch-dl",
   "version": "0.3.0",
   "description": "Command line script to batch download URLs",
-  "main": "src/index.js",
-  "bin": "bin/index.js",
-  "scripts": {
-    "test": "eslint src/"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/lolPants/batch-dl.git"
-  },
   "keywords": [
     "download",
     "all",
     "files",
     "batch"
   ],
-  "author": "Jack Baron <me@jackbaron.com> (https://www.jackbaron.com)",
+  "main": "bin/index.js",
+  "directories": {
+    "bin": "bin"
+  },
+  "files": [
+    "bin/**/*"
+  ],
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "scripts": {
+    "prepublishOnly": "yarn run test && yarn run build",
+    "test": "yarn run check && yarn run lint",
+    "check": "yarn run build --noEmit",
+    "lint": "tslint -c tslint.json 'src/**/*.ts'",
+    "prebuild": "rimraf bin",
+    "build": "tsc",
+    "dev": "tsc --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lolPants/batch-dl.git"
+  },
+  "author": "Jack Baron <jackmbaron@gmail.com> (https://www.jackbaron.com)",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/lolPants/batch-dl/issues"
   },
   "homepage": "https://github.com/lolPants/batch-dl#readme",
   "devDependencies": {
-    "babel-eslint": "^10.0.3",
-    "eslint": "^6.6.0"
+    "@types/is-url": "^1.2.28",
+    "@types/mkdirp": "^0.5.2",
+    "@types/node": "^12.12.6",
+    "@types/node-fetch": "^2.5.3",
+    "prettier": "^1.18.2",
+    "tslint": "^5.20.1",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-microsoft-contrib": "^6.2.0",
+    "tslint-plugin-prettier": "^2.0.1",
+    "typescript": "^3.7.2"
   },
   "dependencies": {
     "commander": "^4.0.0",
-    "fs-extra": "^8.1.0",
     "is-url": "^1.2.4",
-    "snekfetch": "^4.0.4"
+    "mkdirp": "^0.5.1",
+    "node-fetch": "^2.6.0",
+    "read-pkg-up": "^7.0.0"
   }
 }
