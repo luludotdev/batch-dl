@@ -18,7 +18,26 @@
     esutils "^2.0.2"
     js-tokens "^4.0.0"
 
-"@types/node@^12.12.6":
+"@types/is-url@^1.2.28":
+  version "1.2.28"
+  resolved "https://registry.yarnpkg.com/@types/is-url/-/is-url-1.2.28.tgz#914dabd50546d9b0142806e42c72bc7c2b7e0787"
+  integrity sha1-kU2r1QVG2bAUKAbkLHK8fCt+B4c=
+
+"@types/mkdirp@^0.5.2":
+  version "0.5.2"
+  resolved "https://registry.yarnpkg.com/@types/mkdirp/-/mkdirp-0.5.2.tgz#503aacfe5cc2703d5484326b1b27efa67a339c1f"
+  integrity sha512-U5icWpv7YnZYGsN4/cmh3WD2onMY0aJIiTE6+51TwJCttdHvtCYmkBNOobHlXwrJRL0nkH9jH4kD+1FAdMN4Tg==
+  dependencies:
+    "@types/node" "*"
+
+"@types/node-fetch@^2.5.3":
+  version "2.5.3"
+  resolved "https://registry.yarnpkg.com/@types/node-fetch/-/node-fetch-2.5.3.tgz#b84127facd93642b1fb6439bc630ba0612e3ec50"
+  integrity sha512-X3TNlzZ7SuSwZsMkb5fV7GrPbVKvHc2iwHmslb8bIxRKWg2iqkfm3F/Wd79RhDpOXR7wCtKAwc5Y2JE6n/ibyw==
+  dependencies:
+    "@types/node" "*"
+
+"@types/node@*", "@types/node@^12.12.6":
   version "12.12.6"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-12.12.6.tgz#a47240c10d86a9a57bb0c633f0b2e0aea9ce9253"
   integrity sha512-FjsYUPzEJdGXjwKqSpE0/9QEh6kzhTAeObA54rn6j3rR4C/mzpI9L0KNfoeASSPMMdxIsoJuCLDWcM/rVjIsSA==
@@ -248,6 +267,11 @@ mkdirp@^0.5.1:
   dependencies:
     minimist "0.0.8"
 
+node-fetch@^2.6.0:
+  version "2.6.0"
+  resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.6.0.tgz#e633456386d4aa55863f676a7ab0daa8fdecb0fd"
+  integrity sha512-8dG4H5ujfvFiqDmVu9fQ5bOHUC15JMjMY/Zumv26oOvvVJjM67KF8koCWIabKQ1GJIa9r2mMZscBq/TbdOcmNA==
+
 normalize-package-data@^2.5.0:
   version "2.5.0"
   resolved "https://registry.yarnpkg.com/normalize-package-data/-/normalize-package-data-2.5.0.tgz#e66db1838b200c1dfc233225d12cb36520e234a8"
@@ -456,11 +480,6 @@ typescript@^3.7.2:
   version "3.7.2"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.7.2.tgz#27e489b95fa5909445e9fef5ee48d81697ad18fb"
   integrity sha512-ml7V7JfiN2Xwvcer+XAf2csGO1bPBdRbFCkYBczNZggrBZ9c7G3riSUeJmqEU5uOtXNPMhE3n+R4FA/3YOAWOQ==
-
-unfetch@^4.1.0:
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/unfetch/-/unfetch-4.1.0.tgz#6ec2dd0de887e58a4dee83a050ded80ffc4137db"
-  integrity sha512-crP/n3eAPUJxZXM9T80/yv0YhkTEx2K1D3h7D1AJM6fzsWZrxdyRuLN0JH/dkZh1LNH8LxCnBzoPFCPbb2iGpg==
 
 validate-npm-package-license@^3.0.1:
   version "3.0.4"

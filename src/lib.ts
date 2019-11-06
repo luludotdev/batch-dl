@@ -1,55 +1,59 @@
-// Package Dependencies
-const path = require('path')
-const urlParse = require('url')
-const fs = require('fs-extra')
-const snekfetch = require('snekfetch')
-const isURL = require('is-url')
+import isURL from 'is-url'
+import path from 'path'
+import { parse as parseURL } from 'url'
+import { fetch } from './fetch'
+import { writeFile } from './fs'
 
-/**
- * Download and save a file
- * @param {string} url URL to Download
- * @param {string} filePath Path to directory where the file will be saved
- * @param {string} [fileName] Filename to save as
- */
-const downloadFile = async (url, filePath, fileName) => {
+export const downloadFile = async (
+  url: string,
+  filePath: string,
+  fileName: string | null
+) => {
   // Validation
   if (!isURL(url)) throw new Error('Invalid URL')
-  if (filePath === undefined || filePath === null || filePath === '') throw new Error('Please specify a File Path')
+  if (filePath === undefined || filePath === null || filePath === '') {
+    throw new Error('Please specify a File Path')
+  }
 
   try {
     // Download file contents
-    let res = await snekfetch.get(url)
+    const resp = await fetch(url)
 
     // Parse a filename
-    let parsedFile = urlParse.parse(url).pathname
-    let fileExt = path.extname(parsedFile)
-    if (fileName === undefined || fileName === null || fileName === '') fileName = path.basename(parsedFile, fileExt)
-    let fullFileName = `${fileName}${fileExt}`
+    const parsedFile = parseURL(url).pathname
+    if (parsedFile === undefined) throw new Error('cannot determine file name')
+
+    const fileExt = path.extname(parsedFile)
+    if (fileName === undefined || fileName === null || fileName === '') {
+      fileName = path.basename(parsedFile, fileExt)
+    }
 
     // File Operations
-    let fullPath = path.join(filePath, fullFileName)
-    await fs.ensureFile(fullPath)
-    await fs.writeFile(fullPath, res.body)
+    const fullFileName = `${fileName}${fileExt}`
+    const fullPath = path.join(filePath, fullFileName)
+    await writeFile(fullPath, await resp.buffer())
   } catch (err) {
     console.error(`${url} - ${err.message}`)
   }
 }
 
-/**
- *
- * @param {string[]} URLs Array of URLs to download
- * @param {string} filePath Path to directory where the files will be saved
- * @param {boolean} [keepFilenames=false] Keep original filenames (default: false)
- */
-const downloadArray = async (URLs, filePath, keepFilenames = false) => {
+export const downloadArray = async (
+  URLs: string[],
+  filePath: string,
+  keepFilenames: boolean = false
+) => {
   // Filter and validate
   URLs = URLs.filter(url => isURL(url))
   if (URLs.length === 0) throw new Error('No valid URLs passed')
-  if (filePath === undefined || filePath === null || filePath === '') throw new Error('Please specify a File Path')
-  for (let i in URLs) {
+  if (filePath === undefined || filePath === null || filePath === '') {
+    throw new Error('Please specify a File Path')
+  }
+
+  for (const i in URLs) {
     // Define
-    let url = URLs[i]
-    let fileName = keepFilenames ? null : i
+    if (URLs[i] === undefined) continue
+    const url = URLs[i]
+    const fileName = keepFilenames ? null : i
 
     // Download
     try {
@@ -59,5 +63,3 @@ const downloadArray = async (URLs, filePath, keepFilenames = false) => {
     }
   }
 }
-
-module.exports = { downloadFile, downloadArray }
